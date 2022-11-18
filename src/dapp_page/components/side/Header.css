@@ -1,0 +1,52 @@
+/* .header {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.7fr 1.3fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-content: center;
+  align-content: center;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    "header-top"
+    "header-bottom";
+  grid-area: header;
+  border-bottom: 1px solid black;
+}
+
+.header-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "header-top-logo header-top-live-token header-top-buttons";
+  align-self: stretch;
+  grid-area: header-top;
+  border-bottom: 1px solid black;
+  padding-left: 5px;
+}
+
+.header-top-logo {
+  justify-self: start;
+  grid-area: header-top-logo;
+  font-family: "EngraversGothic";
+}
+
+.header-top-live-token {
+  justify-self: center;
+  align-self: stretch;
+  grid-area: header-top-live-token;
+}
+
+.header-top-buttons {
+  justify-self: end;
+  align-self: center;
+  grid-area: header-top-buttons;
+}
+
+.header-bottom {
+  grid-area: header-bottom;
+}
+ */

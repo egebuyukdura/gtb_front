@@ -1,0 +1,136 @@
+/* .content {
+  grid-area: content;
+  border-bottom: 1px solid black;
+}
+.main-content {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "content-left content-right";
+}
+.content-left {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 0.8fr 2.4fr 0.7fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "user-info"
+    "token-info"
+    "token-tx"
+    "token-messages";
+  grid-area: content-left;
+  border-right: 1px solid black;
+}
+.user-info {
+  justify-content: center;
+  align-content: center;
+  grid-area: user-info;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+}
+.user-info p {
+  margin-right: 10px;
+}
+.token-info {
+  grid-area: token-info;
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.5fr 0.5fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "token-address"
+    "token-import"
+    "token-links"
+    "token-advanced"
+    "token-approve";
+  justify-content: center;
+  align-content: center;
+  justify-items: stretch;
+}
+.token-tx {
+  grid-area: token-tx;
+  border-bottom: 1px solid black;
+}
+.token-messages {
+  grid-area: token-messages;
+}
+.content-right {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.7fr 1.3fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "token-analysis"
+    "token-extra-fns";
+  grid-area: content-right;
+}
+.token-analysis {
+  grid-area: token-analysis;
+  border-bottom: 1px solid black;
+}
+.token-extra-fns {
+  grid-area: token-extra-fns;
+}
+.token-address {
+  grid-area: token-address;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
+.token-basic {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.token-basic p {
+  margin-right: 10px;
+}
+.token-import {
+  grid-area: token-import;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.token-import input {
+  margin-right: 10px;
+}
+.token-links {
+  grid-area: token-links;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.token-links a {
+  margin-right: 10px;
+}
+.token-advanced {
+  grid-area: token-advanced;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+}
+.token-advanced p {
+  margin-right: 10px;
+}
+.token-approve {
+  grid-area: token-approve;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+}
+.token-approve p {
+  margin-right: 10px;
+}
+.loader {
+  justify-content: center;
+  align-content: center;
+}
+ */
