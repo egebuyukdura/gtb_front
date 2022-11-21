@@ -27,7 +27,7 @@ const Public = () => {
   const loginSubmit = async (e) => {
     e.preventDefault();
     setPersist(true);
-    loginMutation.mutateAsync({ username, password });
+    await loginMutation.mutateAsync({ username, password });
   };
 
   return (

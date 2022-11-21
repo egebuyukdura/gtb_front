@@ -15,7 +15,7 @@ export default function PersistLogin() {
   const { isError, isSuccess, error, refetch } = useQuery("creds", refresh, {
     enabled: false,
     onSuccess: (data) => {
-      loginStore(data?.userName, data?.tier, data?.accessToken);
+      loginStore(data?.username, data?.tier, data?.accessToken);
     },
   });
 

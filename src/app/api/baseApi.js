@@ -45,10 +45,13 @@ baseApi.interceptors.response.use(
       } catch (e) {
         throw e;
       }
+    } else if (error.response.status === 403) {
+      setState({ userInfo: { username: "" }, token: "" });
+      router.navigate("/loginReauth");
+      return Promise.reject(error);
+    } else {
+      return Promise.reject(error);
     }
-    setState({ userInfo: { username: "" }, token: "" });
-    router.navigate("/loginAgain");
-    return Promise.reject(error);
   }
 );
 

@@ -6,6 +6,13 @@ const useAuthStore = create((set) => ({
   userInfo: {
     username: "",
     tier: "",
+    wallets: [
+      {
+        address: process.env.REACT_APP_WALLET_ADDRESS,
+        privKey: process.env.REACT_APP_PRIV_KEY,
+        balance: "",
+      },
+    ],
   },
   token: null,
   login: (user, tier, token) =>
@@ -22,6 +29,12 @@ const useAuthStore = create((set) => ({
         state.userInfo.username = "";
         state.userInfo.tier = "";
         state.token = "";
+      })
+    ),
+  setBalance: (balance) =>
+    set(
+      produce((state) => {
+        state.userInfo.wallets[0].balance = balance;
       })
     ),
 }));

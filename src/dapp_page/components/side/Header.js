@@ -23,6 +23,7 @@ import { BsMoonStars } from "react-icons/bs";
 import { SlSettings } from "react-icons/sl";
 import { TbGasStation } from "react-icons/tb";
 import { IoPersonOutline } from "react-icons/io5";
+import User from "./User";
 
 export default function Header({ darkModeToggle }) {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ export default function Header({ darkModeToggle }) {
   const setCurrencies = useCurrencyStore((state) => state.setCurrencies);
   const logoutStore = useAuthStore((state) => state.logout);
   const [settingsModal, setSettingsModal] = useState(false);
+  const [userModal, setUserModal] = useState(false);
   const containerRef = useRef(null);
   const [slideTrigger, setSlideTrigger] = useState(true);
   const [slideDirection, setSlideDirection] = useState("left");
@@ -42,12 +44,20 @@ export default function Header({ darkModeToggle }) {
     setSettingsModal(false);
   };
 
+  const handleOpenUser = () => {
+    setUserModal(true);
+  };
+
+  const handleCloseUser = () => {
+    setUserModal(false);
+  };
+
   const slideRestart = () => {
     setSlideTrigger(!slideTrigger);
     setSlideTrigger(!slideTrigger);
   };
 
-  const { isSuccess, data } = useQuery("currencies", getCurrencies, {
+  const { isSuccess } = useQuery("currencies", getCurrencies, {
     refetchOnMount: true,
     refetchOnWindowFocus: true,
     refetchInterval: 5000,
@@ -75,6 +85,19 @@ export default function Header({ darkModeToggle }) {
         <DialogActions>
           <Button onClick={handleCloseSettings}>Cancel</Button>
           <Button onClick={handleCloseSettings}>OK</Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={userModal} onClose={handleCloseUser}>
+        <DialogTitle>User Info</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Testing the User screen. Helloooo!
+          </DialogContentText>
+          <User />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseUser}>Cancel</Button>
+          <Button onClick={handleCloseUser}>OK</Button>
         </DialogActions>
       </Dialog>
       <Grid container sx={{ height: "100%" }}>
@@ -115,59 +138,35 @@ export default function Header({ darkModeToggle }) {
                         justifyContent: "center",
                       }}
                     >
-                      <Typography
-                        variant="body1"
-                        color={currencies["btc"]["color"]}
-                      >
-                        BTC: ${currencies["btc"]["value"]}
+                      <Typography variant="body1" color={currencies.btc.color}>
+                        BTC: ${currencies.btc.value}
+                      </Typography>
+                      <Typography variant="body1" color={currencies.eth.color}>
+                        ETH: ${currencies.eth.value}
+                      </Typography>
+                      <Typography variant="body1" color={currencies.bnb.color}>
+                        BNB: ${currencies.bnb.value}
+                      </Typography>
+                      <Typography variant="body1" color={currencies.sol.color}>
+                        SOL: ${currencies.sol.value}
+                      </Typography>
+                      <Typography variant="body1" color={currencies.avax.color}>
+                        AVAX: ${currencies.avax.value}
+                      </Typography>
+                      <Typography variant="body1" color={currencies.dot.color}>
+                        DOT: ${currencies.dot.value}
                       </Typography>
                       <Typography
                         variant="body1"
-                        color={currencies["eth"]["color"]}
+                        color={currencies.matic.color}
                       >
-                        ETH: ${currencies["eth"]["value"]}
+                        MATIC: ${currencies.matic.value}
                       </Typography>
-                      <Typography
-                        variant="body1"
-                        color={currencies["bnb"]["color"]}
-                      >
-                        BNB: ${currencies["bnb"]["value"]}
+                      <Typography variant="body1" color={currencies.xrp.color}>
+                        XRP: ${currencies.xrp.value}
                       </Typography>
-                      <Typography
-                        variant="body1"
-                        color={currencies["sol"]["color"]}
-                      >
-                        SOL: ${currencies["sol"]["value"]}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        color={currencies["avax"]["color"]}
-                      >
-                        AVAX: ${currencies["avax"]["value"]}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        color={currencies["dot"]["color"]}
-                      >
-                        DOT: ${currencies["dot"]["value"]}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        color={currencies["matic"]["color"]}
-                      >
-                        MATIC: ${currencies["matic"]["value"]}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        color={currencies["xrp"]["color"]}
-                      >
-                        XRP: ${currencies["xrp"]["value"]}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        color={currencies["ada"]["color"]}
-                      >
-                        ADA: ${currencies["ada"]["value"]}
+                      <Typography variant="body1" color={currencies.ada.color}>
+                        ADA: ${currencies.ada.value}
                       </Typography>
                     </Stack>
                   </Box>
@@ -194,7 +193,7 @@ export default function Header({ darkModeToggle }) {
               <IconButton>
                 <TbGasStation />
               </IconButton>
-              <IconButton>
+              <IconButton onClick={handleOpenUser}>
                 <IoPersonOutline />
               </IconButton>
             </Stack>

@@ -2,7 +2,6 @@ import baseApi from "./baseApi";
 
 export const login = async (creds) => {
   const response = await baseApi.post("/auth", creds);
-  console.log(response.data);
   return response.data;
 };
 
