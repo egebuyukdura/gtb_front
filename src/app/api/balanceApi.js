@@ -8,6 +8,6 @@ export const fetchWalletBalance = async (walletAddress) => {
     return response.data;
   } catch (err) {
     console.log(err.response);
-    return err.response;
+    return Promise.reject(err);
   }
 };

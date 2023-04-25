@@ -88,21 +88,6 @@ export default function Home() {
     },
   });
 
-  const dynamicsMutation = useMutation(
-    () =>
-      fetchTokenDynamics(
-        tokenAddress,
-        wallet.address,
-        tokenStatics.decimals,
-        bnbPrice
-      ),
-    {
-      onSuccess: (data) => {
-        setDynamics(data);
-      },
-    }
-  );
-
   const setContentData = async (e) => {
     e.preventDefault();
     await staticsMutation.mutateAsync(tempTokenAddress);
@@ -122,13 +107,7 @@ export default function Home() {
     },
   });
 
-  useInterval(() => {
-    if (!!tokenAddress && !staticsMutation.isLoading) {
-      dynamicsMutation.mutateAsync();
-    }
-  }, 1000);
-
-  /* const { isLoading } = useQuery(
+  const { isLoading } = useQuery(
     "dynamics",
     () =>
       fetchTokenDynamics(
@@ -146,7 +125,28 @@ export default function Home() {
       },
       enabled: !!tokenAddress,
     }
+  );
+
+  /* const dynamicsMutation = useMutation(
+    () =>
+      fetchTokenDynamics(
+        tokenAddress,
+        wallet.address,
+        tokenStatics.decimals,
+        bnbPrice
+      ),
+    {
+      onSuccess: (data) => {
+        setDynamics(data);
+      },
+    }
   ); */
+
+  /* useInterval(() => {
+    if (!!tokenAddress && !staticsMutation.isLoading) {
+      dynamicsMutation.mutateAsync();
+    }
+  }, 1000); */
 
   return (
     <div className="home" style={{ height: "100%" }}>
@@ -314,7 +314,8 @@ export default function Home() {
                   <Typography>Tax: {}</Typography>
                 </Stack>
               </Box>
-              {/* <Box>
+
+              <Box>
                 <Stack
                   direction="row"
                   spacing={2}
@@ -323,7 +324,7 @@ export default function Home() {
                   <Typography>
                     Balance: {tokenDynamics.balance + " " + tokenStatics.symbol}
                   </Typography>
-                  {approveState ? (
+                  {/* {approveState ? (
                     <Button
                       variant="outlined"
                       onClick={() => approve(tokenAddress, false)}
@@ -337,9 +338,9 @@ export default function Home() {
                     >
                       Approve
                     </Button>
-                  )}
+                  )} */}
                 </Stack>
-              </Box> */}
+              </Box>
             </Stack>
           </Grid>
           {/* <Grid container item spacing={2} xs={12}>
